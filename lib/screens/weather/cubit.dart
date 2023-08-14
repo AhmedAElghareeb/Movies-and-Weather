@@ -12,12 +12,12 @@ class WeatherCubit extends Cubit<WeatherState> {
 
   WeatherData? model;
   void getData({bool fromPagination = false}) async {
-    if(fromPagination)
-    {
-      emit(GetWeatherFromPaginationLoadingState());
-    } else {
-      emit(GetWeatherLoadingState());
-    }
+    // if(fromPagination)
+    // {
+    //   emit(GetWeatherFromPaginationLoadingState());
+    // } else {
+    //   emit(GetWeatherLoadingState());
+    // }
     try {
       final response = await Dio().get("https://api.openweathermap.org/data/2.5/weather?q=${cityController.text}&appid=509dc5d730ff2dd6003b22f30ae93313");
       print(response.data);
@@ -25,12 +25,13 @@ class WeatherCubit extends Cubit<WeatherState> {
       emit(GetWeatherSuccessState());
     } on DioException catch(ex)
     {
-      if(fromPagination)
-      {
-        emit(GetWeatherFromPaginationFailState(msg: ex.response!.data));
-      } else {
-        emit(GetWeatherFailedState(msg: ex.toString()));
-      }
+      emit(GetWeatherFailedState(msg: ex.toString()));
+      // if(fromPagination)
+      // {
+      //   emit(GetWeatherFromPaginationFailState(msg: ex.response!.data));
+      // } else {
+      //   emit(GetWeatherFailedState(msg: ex.toString()));
+      // }
     }
   }
 
