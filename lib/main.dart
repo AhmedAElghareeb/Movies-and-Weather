@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.blueGrey,
       ),
-      home: const MoviesView(),
+      home: const WeatherView(),
     );
   }
 }

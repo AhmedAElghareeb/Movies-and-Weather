@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_test/screens/movies/cubit.dart';
 import 'package:movies_test/screens/movies/model.dart';
 
-part 'items.dart';
+part 'item.dart';
 class MoviesView extends StatelessWidget {
   const MoviesView({super.key});
 
@@ -67,7 +67,8 @@ class MoviesView extends StatelessWidget {
               } else {
                 return SizedBox.shrink();
               }
-            },),
+            },
+            ),
           ),
         ),
       ),
