@@ -12,7 +12,7 @@ class WeatherView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.lightBlueAccent,
         centerTitle: true,
-        title: Text("Weather App"),
+        title: const Text("Weather App"),
       ),
       body: BlocBuilder<WeatherCubit, WeatherState>(
         //buildWhen: (previous, current) => current is! GetWeatherFromPaginationLoadingState && current is! GetWeatherFromPaginationFailState,
@@ -26,18 +26,18 @@ class WeatherView extends StatelessWidget {
           } else if (state is GetWeatherSuccessState)
           {
             return SingleChildScrollView(
-              padding: EdgeInsets.all(25),
+              padding: const EdgeInsets.all(25),
               child: Column(
                 children: [
                   TextFormField(
                     controller: BlocProvider.of<WeatherCubit>(context).cityController,
                   ),
-                  SizedBox(height: 18,),
+                  const SizedBox(height: 18,),
                   ElevatedButton(
                     onPressed: () {
                       BlocProvider.of<WeatherCubit>(context).getData();
                     },
-                    child: Text("Find"),
+                    child: const Text("Find"),
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.min,
@@ -88,7 +88,7 @@ class WeatherView extends StatelessWidget {
             // );
           } else
             {
-              return Text("Un Handled State..");
+              return const Text("Un Handled State..");
             }
         },
       ),

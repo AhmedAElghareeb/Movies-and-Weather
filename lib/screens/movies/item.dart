@@ -25,16 +25,16 @@ class _Item extends StatelessWidget {
             flex: 3,
             child: Column(
               children: [
-                Text(model.title, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),),
-                SizedBox(height: 16,),
+                Text(model.title, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),),
+                const SizedBox(height: 16,),
                 Text(model.overview, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Theme.of(context).hintColor),),
-                SizedBox(height: 16,),
+                const SizedBox(height: 16,),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.star, color: Colors.amber,),
-                    SizedBox(width: 4,),
-                    Text(model.voteAverage.toString(), style: TextStyle(fontWeight: FontWeight.w700, color: Colors.amber,),)
+                    const Icon(Icons.star, color: Colors.amber,),
+                    const SizedBox(width: 4,),
+                    Text(model.voteAverage.toString(), style: const TextStyle(fontWeight: FontWeight.w700, color: Colors.amber,),)
                   ],
                 ),
               ],

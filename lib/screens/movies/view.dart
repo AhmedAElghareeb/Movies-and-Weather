@@ -43,7 +43,7 @@ class MoviesView extends StatelessWidget {
             );
           } else
           {
-            return Text("Un Handled State..");
+            return const Text("Un Handled State..");
           }
         },
     ),
@@ -55,7 +55,7 @@ class MoviesView extends StatelessWidget {
             builder: (context, state) {
             if(state is GetMoviesFromPaginationLoadingState)
             {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),);
             } else if(state is GetMoviesFromPaginationFailState)
             {
@@ -63,7 +63,7 @@ class MoviesView extends StatelessWidget {
                 child: Text(state.msg),
               );
             } else {
-              return SizedBox.shrink();
+              return const SizedBox.shrink();
             }
           },
           ),

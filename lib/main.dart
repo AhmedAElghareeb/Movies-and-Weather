@@ -17,13 +17,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create:  (context)=>MoviesCubit()..getMovies()),
-        BlocProvider(create:  (context)=>WeatherCubit()..getData()),
+        BlocProvider(create: (context) => MoviesCubit()..getMovies()),
+        BlocProvider(create: (context) => WeatherCubit()..getData()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
             systemOverlayStyle: SystemUiOverlayStyle(
               statusBarIconBrightness: Brightness.light,
               statusBarColor: Colors.lightBlueAccent,
