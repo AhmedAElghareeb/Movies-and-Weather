@@ -12,6 +12,7 @@ class WeatherView extends StatelessWidget {
       create: (context) => WeatherCubit()..getData(),
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.lightBlueAccent,
           centerTitle: true,
           title: Text("Weather App"),
         ),
@@ -42,9 +43,10 @@ class WeatherView extends StatelessWidget {
                         controller: BlocProvider.of<WeatherCubit>(context).cityController,
                       ),
                       SizedBox(height: 18,),
-                      ElevatedButton(onPressed: () {
-                        BlocProvider.of<WeatherCubit>(context).getData();
-                      },
+                      ElevatedButton(
+                        onPressed: () {
+                          BlocProvider.of<WeatherCubit>(context).getData();
+                          },
                         child: Text("Find"),
                       ),
                       Column(

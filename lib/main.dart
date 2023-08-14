@@ -18,10 +18,9 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarIconBrightness: Brightness.light,
-            statusBarColor: Colors.blueGrey,
+            statusBarColor: Colors.lightBlueAccent,
           )
         ),
-        primarySwatch: Colors.blueGrey,
       ),
       home: const WeatherView(),
     );
