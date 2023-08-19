@@ -8,13 +8,16 @@ class WeatherView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WeatherCubit cubit = BlocProvider.of(context);
+    cubit.getData();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlueAccent,
         centerTitle: true,
         title: const Text("Weather App"),
       ),
-      body: BlocBuilder<WeatherCubit, WeatherState>(
+      body: BlocBuilder(
+        bloc: cubit,
         //buildWhen: (previous, current) => current is! GetWeatherFromPaginationLoadingState && current is! GetWeatherFromPaginationFailState,
         builder: (context, state) {
           if (state is GetWeatherLoadingState)

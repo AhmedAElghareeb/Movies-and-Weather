@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_test/screens/movie_details/cubit.dart';
 import 'package:movies_test/screens/movies/cubit.dart';
 import 'package:movies_test/screens/weather/cubit.dart';
 
@@ -17,8 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => MoviesCubit()..getMovies()),
-        BlocProvider(create: (context) => WeatherCubit()..getData()),
+        BlocProvider(create: (context) => MoviesCubit()),
+        BlocProvider(create: (context) => WeatherCubit()),
+        BlocProvider(create: (context) => MovieDetailsCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
             )
           ),
         ),
-        home: const WeatherView(),
+        home: const MoviesView(),
       ),
     );
   }

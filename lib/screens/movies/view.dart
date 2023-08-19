@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_test/screens/movie_details/view.dart';
 import 'package:movies_test/screens/movies/cubit.dart';
 import 'package:movies_test/screens/movies/model.dart';
 
@@ -9,12 +10,16 @@ class MoviesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MoviesCubit cubit = BlocProvider.of(context);
+    cubit.getMovies();
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightBlueAccent,
         centerTitle: true,
         title: const Text("Movies"),
       ),
-      body: BlocBuilder<MoviesCubit, MoviesStates>(
+      body: BlocBuilder(
+        bloc: cubit,
         buildWhen: (previous, current) => current is! GetMoviesFromPaginationLoadingState && current is! GetMoviesFromPaginationFailState,
         builder: (context, state) {
           if(state is GetMoviesLoadingState)
@@ -56,7 +61,7 @@ class MoviesView extends StatelessWidget {
             if(state is GetMoviesFromPaginationLoadingState)
             {
               return const Center(
-                child: CircularProgressIndicator(),);
+                child: CircularProgressIndicator(color: Colors.green),);
             } else if(state is GetMoviesFromPaginationFailState)
             {
               return Center(
